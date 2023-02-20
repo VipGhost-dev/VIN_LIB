@@ -38,7 +38,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void CheckCountry_True()
         {
-            string vin = "A2V8L2W2OQ1KD5CRT";
+            string vin = "A2Q4L2W2OQ1CM7CRT";
             string except = "Африка";
             string actual = Class1.GetVINCountry(vin);
             Assert.AreEqual(except, actual);
@@ -47,7 +47,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void CheckCountry_False()
         {
-            string vin = "Z2V8L2W2OQ1KD5CRT";
+            string vin = "Z2Q4L2W2OQ1CM7CRT";
             string except = "Океания";
             string actual = Class1.GetVINCountry(vin);
             Assert.AreNotEqual(except, actual);
@@ -56,7 +56,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void CheckCountry_returnString_True()
         {
-            string vin = "Z2V8L2W2OQ1KD5CRT";
+            string vin = "Z2Q4L2W2OQ1CM7CRT";
             Assert.IsInstanceOfType(Class1.GetVINCountry(vin), typeof(string));
         }
 
@@ -70,14 +70,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void CheckVIN_returnBool_True()
         {
-            string vin = "A2V8L2W2OQ1KD5CRT";
+            string vin = "Z2Q4L2W2OQ1CM7CRT";
             Assert.IsInstanceOfType(Class1.CheckVIN(vin), typeof(bool));
         }
 
         [TestMethod]
         public void CheckCountry_returnNull_True()
         {
-            string vin = "-2V8L2W2OQ1KD5CRT";
+            string vin = "-2Q4L2W2OQ1CM7CRT";
             Assert.IsNull(Class1.GetVINCountry(vin));
         }
 
@@ -101,14 +101,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void CheckVIN_incorrectSymbols()
         {
-            string vin = "-2V8L2W2OQ1KD5CRT";
+            string vin = "-2Q4L2W2OQ1CM7CRT";
             Assert.ThrowsException<AssertFailedException>(() => Assert.ThrowsException<SystemException>(() => Class1.CheckVIN(vin)));
         }
 
         [TestMethod]
         public void CheckCountry_incorrectSymbols()
         {
-            string vin = "-2V8L2W2OQ1K/5CRT";
+            string vin = "-2Q4L2W2OQ1C/7CRT";
             Assert.ThrowsException<AssertFailedException>(() => Assert.ThrowsException<SystemException>(() => Class1.GetVINCountry(vin)));
         }
 
